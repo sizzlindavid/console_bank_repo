@@ -1,0 +1,44 @@
+void main(){
+
+consoleBank bank = consoleBank();
+  print("**********INITIAL BALANCE**********");
+  bank.availableBalance();
+  print("\n**********MONEY DEPOSITED**********");
+  bank.deposit(500);
+  print("\n**********AMOUNT WITHDRAWN**********");
+  bank.withdraw(100);
+  print("\n**********AVAILABLE BALANCE**********");
+  bank.availableBalance();
+}
+
+class consoleBank{
+String account_name;
+String account_number;
+double account_balance = 0.0;
+
+consoleBank()
+{
+  this.account_name = "David Uko";
+  this.account_number = "0022493663";
+}
+void availableBalance(){
+print("Hello $account_name, your available account balance with account number $account_number is $account_balance");
+}
+
+String deposit(double amount){
+account_balance = account_balance + amount;
+print("Money Deposited successfully");
+return "You deposited $amount into your account. Your balance is now $account_balance";
+}
+
+void withdraw(double amount){
+if(amount > account_balance){
+print("Insufficient fund");
+}
+else{
+account_balance = account_balance - amount;
+print("You have withdrawn $amount from your account, available balance is now $account_balance");
+}
+
+}
+}
